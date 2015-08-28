@@ -1,0 +1,28 @@
+{
+  "name": "Tombola.Games.NoughtsAndCrosses",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AndrewMollett/Tombola.Games.NoughtsAndCrosses",
+  "authors": [
+    "Andrew Mollett <Andrew.Mollett@tombola.com>"
+  ],
+  "description": "Noughts and crosses angular game, bower",
+  "main": "node",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "angular",
+    "javascript",
+    "noughts",
+    "crosses",
+    "game"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
