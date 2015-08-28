@@ -1,0 +1,19 @@
+{
+  "name": "Tombola.Games.NoughtsAndCrosses",
+  "version": "0.0.0",
+  "description": "Noughts and crosses angular game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://AndrewMollett@github.com/AndrewMollett/Tombola.Games.NoughtsAndCrosses.git"
+  },
+  "author": "Andrew Mollett <andrew.mollett@tombola.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewMollett/Tombola.Games.NoughtsAndCrosses/issues"
+  },
+  "homepage": "https://github.com/AndrewMollett/Tombola.Games.NoughtsAndCrosses"
+}
