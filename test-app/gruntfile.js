@@ -25,7 +25,7 @@
                 mainappbower: {
                     cwd:'',
                     src: ['bower-components/**/*.*'],
-                    dest: '.thirdparty/',
+                    dest: '.build/thirdparty/',
                     expand: true
                 }
             }
