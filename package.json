@@ -24,5 +24,8 @@
     "grunt-contrib-less": "~1.0.1",
     "grunt-lesslint": "~1.2.0",
     "jshint-stylish": "~2.0.1"
+  },
+  "dependencies": {
+    "grunt": "~0.4.5"
   }
 }
