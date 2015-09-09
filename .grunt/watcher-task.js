@@ -12,6 +12,14 @@
         watchhtml: {
             files: ['test-app/*.html', 'test-app/scripts/Directives/*.html'],
             tasks: ['htmlFiles']
+        },
+        watchimages: {
+            files: ['test-app/images/*.*'],
+            tasks: ['imageFiles']
+        },
+        watchsounds: {
+            files: ['test-app/sound/*.*'],
+            tasks: ['soundFiles']
         }
     }
 })();

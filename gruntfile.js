@@ -27,6 +27,8 @@
         grunt.registerTask('lessFiles', ['lesslint', 'clean:css', 'less']);
         grunt.registerTask('JSFiles', ['jshint', 'clean:javascript', 'concat']);
         grunt.registerTask('htmlFiles', ['clean:html', 'copy:mainapphtml']);
-        grunt.registerTask('default', ['copy', 'JSFiles', 'lessFiles', 'watch']);
+        grunt.registerTask('soundFiles', ['clean:sounds', 'copy:mainappsounds']);
+        grunt.registerTask('imageFiles', ['clean:images', 'copy:mainappimages']);
+        grunt.registerTask('default', ['copy:mainappbower', 'JSFiles', 'lessFiles', 'htmlFiles', 'soundFiles', 'imageFiles', 'watch']);
     }
 })();
