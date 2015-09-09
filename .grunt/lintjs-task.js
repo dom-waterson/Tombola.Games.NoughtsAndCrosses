@@ -4,11 +4,11 @@
         jshint: {
             all: [
                 'gruntfile.js',
-                'test-app/scripts/*.js'
+                'noughts-and-crosses/app/scripts/*.js'
             ],
             cwd: '',
-            src: ['test-app/scripts/**/*.js'],
-            dest: '.build/test-app/scripts',
+            src: ['noughts-and-crosses/app/scripts/**/*.js'],
+            dest: '.build/noughts-and-crosses/app/scripts',
             expand: true
         }
     };

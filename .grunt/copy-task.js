@@ -3,19 +3,19 @@
     module.exports= {
         mainappimages: {
             cwd: '',
-            src: ['test-app/images/**/*.*'],
+            src: ['noughts-and-crosses/app/images/**/*.*'],
             dest: '.build/',
             expand: true
         },
         mainappsounds: {
             cwd: '',
-            src: ['test-app/sound/**/*.*'],
+            src: ['noughts-and-crosses/app/sound/**/*.*'],
             dest: '.build/',
             expand: true
         },
         mainapphtml: {
             cwd: '',
-            src: ['test-app/**/*.html'],
+            src: ['noughts-and-crosses/app/**/*.html'],
             dest: '.build/',
             expand: true
         },

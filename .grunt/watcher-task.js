@@ -2,23 +2,23 @@
     'use strict';
     module.exports={
         watchscripts: {
-            files: ['test-app/scripts/**/*.js'],
+            files: ['noughts-and-crosses/app/scripts/**/*.js'],
             tasks: ['JSFiles']
         },
         watchless: {
-            files: ['test-app/less/*.less'],
+            files: ['noughts-and-crosses/app/less/*.less'],
             tasks: ['lessFiles']
         },
         watchhtml: {
-            files: ['test-app/*.html', 'test-app/scripts/Directives/*.html'],
+            files: ['noughts-and-crosses/app/*.html', 'noughts-and-crosses/app/scripts/Directives/*.html'],
             tasks: ['htmlFiles']
         },
         watchimages: {
-            files: ['test-app/images/*.*'],
+            files: ['noughts-and-crosses/app/images/*.*'],
             tasks: ['imageFiles']
         },
         watchsounds: {
-            files: ['test-app/sound/*.*'],
+            files: ['noughts-and-crosses/app/sound/*.*'],
             tasks: ['soundFiles']
         }
     }

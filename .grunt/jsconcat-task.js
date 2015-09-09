@@ -3,11 +3,11 @@
     module.exports= {
         jsconcat: {
             cwd: '',
-            src: ['test-app/scripts/*.js',
-                'test-app/scripts/Controllers/*.js',
-                'test-app/scripts/Directives/*.js',
-                'test-app/scripts/Services/*.js'],
-            dest: '.build/test-app/scripts/app.js',
+            src: ['noughts-and-crosses/app/scripts/*.js',
+                'noughts-and-crosses/app/scripts/Controllers/*.js',
+                'noughts-and-crosses/app/scripts/Directives/*.js',
+                'noughts-and-crosses/app/scripts/Services/*.js'],
+            dest: '.build/noughts-and-crosses/app/scripts/app.js',
             expand: false
         }
     };

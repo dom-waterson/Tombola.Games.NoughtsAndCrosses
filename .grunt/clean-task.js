@@ -2,19 +2,19 @@
     'use strict';
     module.exports={
         javascript:{
-            src: ['.build/test-app/scripts/']
+            src: ['.build/noughts-and-crosses/app/scripts/']
         },
         css:{
-            src: ['.build/test-app/css/']
+            src: ['.build/noughts-and-crosses/app/css/']
         },
         images:{
-            src: ['.build/test-app/images/']
+            src: ['.build/noughts-and-crosses/app/images/']
         },
         sounds:{
-            src: ['.build/test-app/sound/']
+            src: ['.build/noughts-and-crosses/app/sound/']
         },
         html:{
-            src: ['.build/test-app/*.html']
+            src: ['.build/noughts-and-crosses/app/*.html']
         }
     };
 })();

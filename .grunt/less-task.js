@@ -3,9 +3,9 @@
     module.exports={
         lessconverter: {
             expand: true,
-            cwd: 'test-app/less/',
+            cwd: 'noughts-and-crosses/app/less/',
             src: ['**/*.less'],
-            dest: '.build/test-app/css/',
+            dest: '.build/noughts-and-crosses/app/css/',
             ext: '.css'
         }
     };
