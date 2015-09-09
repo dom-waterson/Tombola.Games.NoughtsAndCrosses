@@ -8,11 +8,30 @@
 <body>
     <p>Prepare your anus</p>
     <div class="playerselection" ng-controller="PlayerSelectionController as playerSelectionCtrl">
-        <img ng-src=""
+        <section class="player">
+            <h2>Player 1 = {{player1}}</h2>
+            <img ng-src="images/{{player1}}.png"/>
+        </section>
+        <section class="player">
+            <h2>Player 2 = {{player2}}</h2>
+            <img ng-src="images/{{player2}}.png"/>
+        </section>
+        <section class="select">
+            <select ng-model="player1">
+                <option value="human">Human</option>
+                <option value="computer">Computer</option>
+                <option value="random">Random</option>
+            </select>
+            <select ng-model="player2">
+                <option value="human">Human</option>
+                <option value="computer">Computer</option>
+                <option value="random">Random</option>
+            </select>
+        </section>
     </div>
     <div class="majesty">
     <img src="images/Majesty.jpg"/>
-        <audio controls loop autoplay>
+        <audio controls loop>
             <source src="sound/Silly.mp3" type="audio/mp3"/>
         </audio>
     </div>
