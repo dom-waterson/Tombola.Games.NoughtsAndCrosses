@@ -2,23 +2,31 @@
     'use strict';
     var copyTask = require('./.grunt/copy-task'),
         lintjsTask = require('./.grunt/lintjs-task'),
-        concatjsTask = require('./.grunt/jsconcat-task');
+        concatjsTask = require('./.grunt/jsconcat-task'),
+        lessTask = require('./.grunt/less-task'),
+        cleanTask = require('./.grunt/clean-task'),
+        watchTask = require('./.grunt/watcher-task');
     module.exports = function(grunt){
         grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
             copy: copyTask,
-            //lesslint: lessLintTask,
-            //less: lessLintTask,
+            lesslint: lessTask,
+            less: lessTask,
             jshint: lintjsTask,
-            concat: concatjsTask
+            concat: concatjsTask,
+            clean: cleanTask,
+            watch: watchTask
         });
         grunt.loadNpmTasks('grunt-contrib-copy');
         grunt.loadNpmTasks('grunt-lesslint');
         grunt.loadNpmTasks('grunt-contrib-less');
         grunt.loadNpmTasks('grunt-contrib-jshint');
         grunt.loadNpmTasks('grunt-contrib-concat');
-        grunt.registerTask('lintJS', ['jshint']);
-        grunt.registerTask('jsConcatFiles', ['concat']);
-        grunt.registerTask('default', ['copy', 'lintJS', 'concat']);
+        grunt.loadNpmTasks('grunt-contrib-clean');
+        grunt.loadNpmTasks('grunt-contrib-watch');
+        grunt.registerTask('lessFiles', ['lesslint', 'clean:css', 'less']);
+        grunt.registerTask('JSFiles', ['jshint', 'clean:javascript', 'concat']);
+        grunt.registerTask('htmlFiles', ['clean:html', 'copy:mainapphtml']);
+        grunt.registerTask('default', ['copy', 'JSFiles', 'lessFiles', 'watch']);
     }
 })();
