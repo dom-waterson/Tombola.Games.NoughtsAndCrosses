@@ -1,9 +1,27 @@
 @mainbg: #700b0b;
-@mainTextColor: #ffffff;
+@mainTextColor: #CCCCCC;
 body {
   background-color: @mainbg;
   color: @mainTextColor;
   .player {
     display:inline;
+  }
+  .gameboard{
+    table {
+      border-width: 1px;
+      border-style: solid;
+      tr {
+        border-width: 1px;
+        border-style: solid;
+        width: 154px;
+        height: 51px;
+        td {
+          border-width: 1px;
+          border-style: solid;
+          Width: 51px;
+          height: 51px;
+        }
+      }
+    }
   }
 }

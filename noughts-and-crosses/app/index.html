@@ -7,28 +7,50 @@
 </head>
 <body>
     <p>Prepare your anus</p>
-    <div class="playerselection" ng-controller="PlayerSelectionController as playerSelectionCtrl">
-        <section class="player">
-            <h2>Player 1 = {{player1}}</h2>
-            <img ng-src="images/{{player1}}.png"/>
-        </section>
-        <section class="player">
-            <h2>Player 2 = {{player2}}</h2>
-            <img ng-src="images/{{player2}}.png"/>
-        </section>
-        <section class="select">
-            <select ng-model="player1">
-                <option value="human">Human</option>
-                <option value="computer">Computer</option>
-                <option value="random">Random</option>
-            </select>
-            <select ng-model="player2">
-                <option value="human">Human</option>
-                <option value="computer">Computer</option>
-                <option value="random">Random</option>
-            </select>
-        </section>
-    </div>
+    <main ng-controller="PlayerSelectionController">
+        <div class="playerselection">
+            <section class="player">
+                <h2>Player 1 = {{player1}}</h2>
+                <img ng-src="images/{{player1}}.png"/>
+            </section>
+            <section class="player">
+                <h2>Player 2 = {{player2}}</h2>
+                <img ng-src="images/{{player2}}.png"/>
+            </section>
+            <section class="select">
+                <select ng-model="player1">
+                    <option value="human">Human</option>
+                    <option value="computer">Computer</option>
+                    <option value="random">Random</option>
+                </select>
+                <select ng-model="player2">
+                    <option value="human">Human</option>
+                    <option value="computer">Computer</option>
+                    <option value="random">Random</option>
+                </select>
+            </section>
+            <button ng-click="createGameboard()" ng-hide="playing">Start!</button>
+        </div>
+        <div class="gameboard" ng-show="playing">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </main>
     <div class="majesty">
     <img src="images/Majesty.jpg"/>
         <audio controls loop>
