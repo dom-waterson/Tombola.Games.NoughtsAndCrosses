@@ -18,6 +18,18 @@
             $scope.gameboard.board = $scope.gameboard.board.substr(0,index) + $scope.gameboard.playerTurn + $scope.gameboard.board.substr(index+1);
         };
 
+        $scope.setPlayerClass = function(){
+            if(!$scope.playing){
+                return '';
+            }
+            if($scope.gameboard.playerTurn === 1){
+                return 'player1';
+            }
+            else{
+                return 'player2';
+            }
+        };
+
         $scope.gameboardClicked = function(squareNumberClicked){
             if ($scope.gameboard.board.charAt(squareNumberClicked) !== '0'){
                 return;
@@ -25,12 +37,10 @@
             if ($scope.gameboard.playerTurn === 1){
                 $scope.updateGameboard(squareNumberClicked);
                 $scope.gameboard.playerTurn = 2;
-                document.getElementsByClassName('boardSquare')[squareNumberClicked].setAttribute('src', 'images/player1.png');
             }
             else{
                 $scope.updateGameboard(squareNumberClicked);
                 $scope.gameboard.playerTurn = 1;
-                document.getElementsByClassName('boardSquare')[squareNumberClicked].setAttribute('src', 'images/player2.png');
             }
         };
     });
