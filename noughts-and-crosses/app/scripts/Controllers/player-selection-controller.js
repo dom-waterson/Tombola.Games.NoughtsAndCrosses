@@ -14,14 +14,23 @@
             $scope.playing = true;
         };
 
+        $scope.updateGameboard = function(index){
+            $scope.gameboard.board = $scope.gameboard.board.substr(0,index) + $scope.gameboard.playerTurn + $scope.gameboard.board.substr(index+1);
+        };
+
         $scope.gameboardClicked = function(squareNumberClicked){
+            if ($scope.gameboard.board.charAt(squareNumberClicked) !== '0'){
+                return;
+            }
             if ($scope.gameboard.playerTurn === 1){
-                alert('player 1 clicked square: ' + squareNumberClicked);
+                $scope.updateGameboard(squareNumberClicked);
                 $scope.gameboard.playerTurn = 2;
+                document.getElementsByClassName('boardSquare')[squareNumberClicked].setAttribute('src', 'images/player1.png');
             }
             else{
-                alert('player 2 clicked square: ' + squareNumberClicked);
+                $scope.updateGameboard(squareNumberClicked);
                 $scope.gameboard.playerTurn = 1;
+                document.getElementsByClassName('boardSquare')[squareNumberClicked].setAttribute('src', 'images/player2.png');
             }
         };
     });
