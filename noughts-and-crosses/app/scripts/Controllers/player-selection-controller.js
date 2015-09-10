@@ -13,5 +13,16 @@
             };
             $scope.playing = true;
         };
+
+        $scope.gameboardClicked = function(squareNumberClicked){
+            if ($scope.gameboard.playerTurn === 1){
+                alert('player 1 clicked square: ' + squareNumberClicked);
+                $scope.gameboard.playerTurn = 2;
+            }
+            else{
+                alert('player 2 clicked square: ' + squareNumberClicked);
+                $scope.gameboard.playerTurn = 1;
+            }
+        };
     });
 })();

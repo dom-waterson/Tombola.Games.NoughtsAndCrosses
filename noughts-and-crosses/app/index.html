@@ -34,21 +34,22 @@
         <div class="gameboard" ng-show="playing">
             <table>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td ng-click="gameboardClicked(0)"></td>
+                    <td ng-click="gameboardClicked(1)"></td>
+                    <td ng-click="gameboardClicked(2)"></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td ng-click="gameboardClicked(3)"></td>
+                    <td ng-click="gameboardClicked(4)"></td>
+                    <td ng-click="gameboardClicked(5)"></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td ng-click="gameboardClicked(6)"></td>
+                    <td ng-click="gameboardClicked(7)"></td>
+                    <td ng-click="gameboardClicked(8)"></td>
                 </tr>
             </table>
+            <p>{{gameboard.board}}</p>
         </div>
     </main>
     <div class="majesty">
