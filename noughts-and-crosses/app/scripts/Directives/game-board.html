@@ -1,4 +1,4 @@
-<div class="gameboard" ng-show="playing">
+<div class="gameboard">
     <div class="gameboardRow">
         <div class="gameboardSquare player{{gameboard.board[0]}}" ng-click="gameboardClicked(0);"></div>
         <div class="gameboardSquare player{{gameboard.board[1]}}" ng-click="gameboardClicked(1);"></div>
@@ -15,4 +15,5 @@
         <div class="gameboardSquare player{{gameboard.board[8]}}" ng-click="gameboardClicked(8);"></div>
     </div>
 </div>
+<button ng-click="resetGame()">Reset</button>
 <p>{{gameboard.board}}</p>

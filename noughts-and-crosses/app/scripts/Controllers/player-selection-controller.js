@@ -19,6 +19,10 @@
             $scope.gameboard.board = $scope.gameboard.board.substr(0,index) + $scope.gameboard.playerTurn + $scope.gameboard.board.substr(index+1);
         };
 
+        $scope.resetGame = function(){
+            $scope.playing = false;
+        };
+
         $scope.gameboardClicked = function(squareNumberClicked){
             if ($scope.gameboard.board.charAt(squareNumberClicked) !== '0'){
                 return;

@@ -8,8 +8,8 @@
 <body>
     <p>Prepare your anus</p>
     <main ng-controller="PlayerSelectionController">
-        <player-selection></player-selection>
-        <gameboard></gameboard>
+        <player-selection ng-hide="playing"></player-selection>
+        <gameboard ng-show="playing"></gameboard>
     </main>
     <div class="majesty">
     <img src="images/Majesty.jpg"/>
