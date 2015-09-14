@@ -11,36 +11,42 @@ body {
     }
   }
   .gameboard{
-    table {
-      border-width: 1px;
-      border-style: solid;
-      tr {
+    width: 156px;
+    height: 152px;
+    max-width: 156px;
+    max-height: 152px;
+    border-width:3px;
+    border-style:solid;
+    border-color: @mainTextColor;
+    display: table;
+    .gameboardRow {
+      display: table-row;
+      width: 156px;
+      height: 50px;
+      max-width: 156px;
+      max-height: 50px;
+      .gameboardSquare {
+        display: table-cell;
         border-width: 1px;
-        border-style: solid;
-        width: 154px;
-        height: 51px;
-        td {
-          border-width: 1px;
-          border-style: solid;
-          Width: 60px;
-          height: 60px;
-          .player1, .player2{
-            background: url(../images/playerSheet.png);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            max-height: 50px;
-            max-width: 50px;
-            width: 50px;
-            height: 50px;
-          }
-          .player1{
-            background-position: 0 0;
-          }
-          .player2{
-            background-position: 50px 0;
-          }
-        }
+        border-style: dashed;
+        align-items: center;
+        Width: 50px;
+        height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+      }
+      .player1, .player2 {
+        background: url(../images/playerSheet.png);
+        max-height: 50px;
+        max-width: 50px;
+        width: 50px;
+        height: 50px;
+      }
+      .player1 {
+        background-position: 0 0;
+      }
+      .player2 {
+        background-position: 50px 0;
       }
     }
   }

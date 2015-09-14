@@ -32,17 +32,6 @@
                 $scope.gameboard.playerTurn = 1;
             }
         };
-
-        $scope.checkWinner = function(){
-            var i;
-            for(i=0; i<$scope.win.length; i++){
-                if($scope.gameboard.board === $scope.win[i]){
-                    //Really basic hack, won't actually work at the moment
-                    //Need to evaluate the win conditions, P = winning plays, X = any other possible plays
-                    return true;
-                }
-            }
-        };
     });
 
     var winConditions = [
