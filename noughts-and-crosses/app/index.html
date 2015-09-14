@@ -34,19 +34,19 @@
         <div class="gameboard" ng-show="playing">
             <table>
                 <tr>
-                    <td ng-click="gameboardClicked(0);"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
-                    <td ng-click="gameboardClicked(1)"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
-                    <td ng-click="gameboardClicked(2)"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
+                    <td ng-click="gameboardClicked(0);"><img ng-src="images/blank.png" class="player{{gameboard.board[0]}}"/></td>
+                    <td ng-click="gameboardClicked(1);"><img ng-src="images/blank.png" class="player{{gameboard.board[1]}}"/></td>
+                    <td ng-click="gameboardClicked(2);"><img ng-src="images/blank.png" class="player{{gameboard.board[2]}}"/></td>
                 </tr>
                 <tr>
-                    <td ng-click="gameboardClicked(3)"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
-                    <td ng-click="gameboardClicked(4)"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
-                    <td ng-click="gameboardClicked(5)"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
+                    <td ng-click="gameboardClicked(3);"><img ng-src="images/blank.png" class="player{{gameboard.board[3]}}"/></td>
+                    <td ng-click="gameboardClicked(4);"><img ng-src="images/blank.png" class="player{{gameboard.board[4]}}"/></td>
+                    <td ng-click="gameboardClicked(5);"><img ng-src="images/blank.png" class="player{{gameboard.board[5]}}"/></td>
                 </tr>
                 <tr>
-                    <td ng-click="gameboardClicked(6)"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
-                    <td ng-click="gameboardClicked(7)"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
-                    <td ng-click="gameboardClicked(8)"><img ng-class="setPlayerClass()" ng-src="images/blank.png"/></td>
+                    <td ng-click="gameboardClicked(6);"><img ng-src="images/blank.png" class="player{{gameboard.board[6]}}"/></td>
+                    <td ng-click="gameboardClicked(7);"><img ng-src="images/blank.png" class="player{{gameboard.board[7]}}"/></td>
+                    <td ng-click="gameboardClicked(8);"><img ng-src="images/blank.png" class="player{{gameboard.board[8]}}"/></td>
                 </tr>
             </table>
             <p>{{gameboard.board}}</p>

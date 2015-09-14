@@ -4,6 +4,7 @@
         $scope.player1 = 'human';
         $scope.player2 = 'human';
         $scope.playing = false;
+        $scope.win = winConditions;
         $scope.createGameboard = function(){
             $scope.gameboard = {
                 player1 : $scope.player1,
@@ -16,18 +17,6 @@
 
         $scope.updateGameboard = function(index){
             $scope.gameboard.board = $scope.gameboard.board.substr(0,index) + $scope.gameboard.playerTurn + $scope.gameboard.board.substr(index+1);
-        };
-
-        $scope.setPlayerClass = function(){
-            if(!$scope.playing){
-                return '';
-            }
-            if($scope.gameboard.playerTurn === 1){
-                return 'player1';
-            }
-            else{
-                return 'player2';
-            }
         };
 
         $scope.gameboardClicked = function(squareNumberClicked){
@@ -43,5 +32,27 @@
                 $scope.gameboard.playerTurn = 1;
             }
         };
+
+        $scope.checkWinner = function(){
+            var i;
+            for(i=0; i<$scope.win.length; i++){
+                if($scope.gameboard.board === $scope.win[i]){
+                    //Really basic hack, won't actually work at the moment
+                    //Need to evaluate the win conditions, P = winning plays, X = any other possible plays
+                    return true;
+                }
+            }
+        };
     });
+
+    var winConditions = [
+        'PPPXXXXXX',
+        'XXXPPPXXX',
+        'XXXXXXPPP',
+        'PXXPXXPXX',
+        'XPXXPXXPX',
+        'XXPXXPXXP',
+        'PXXXPXXXP',
+        'XXPXPXPXX'
+    ];
 })();
