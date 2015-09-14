@@ -1,0 +1,23 @@
+<div class="playerselection">
+    <section class="player">
+        <h2>Player 1 = {{player1}}</h2>
+        <img ng-src="images/{{player1}}.png"/>
+    </section>
+    <section class="player">
+        <h2>Player 2 = {{player2}}</h2>
+        <img ng-src="images/{{player2}}.png"/>
+    </section>
+    <section class="select">
+        <select ng-model="player1">
+            <option value="human">Human</option>
+            <option value="computer">Computer</option>
+            <option value="random">Random</option>
+        </select>
+        <select ng-model="player2">
+            <option value="human">Human</option>
+            <option value="computer">Computer</option>
+            <option value="random">Random</option>
+        </select>
+    </section>
+    <button ng-click="createGameboard()" ng-hide="playing">Start!</button>
+</div>

@@ -1,7 +1,9 @@
-/**
- * Created by andrew.mollett on 14/09/15.
- */
 (function () {
     'use strict';
-    //Code here
+    angular.module('Tombola.NoughtsAndCrosses').directive('gameboard', function(){
+        return{
+            restrict: 'E',
+            templateUrl: 'scripts/Directives/game-board.html'
+        };
+    });
 })();

@@ -2,7 +2,7 @@
     'use strict';
     module.exports={
         javascript:{
-            src: ['.build/noughts-and-crosses/app/scripts/']
+            src: ['.build/noughts-and-crosses/app/scripts/*.js']
         },
         css:{
             src: ['.build/noughts-and-crosses/app/css/']
