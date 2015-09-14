@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>test-app</title>
+    <script type="text/javascript" src="../../thirdparty/bower_components/angular/angular.min.js"></script>
 </head>
 <body>
     <p>Prepare your anus</p>
-    <main ng-controller="PlayerSelectionController">
+    <main ng-controller="PlayerSelectionController" ng-cloak>
         <player-selection ng-hide="playing"></player-selection>
         <gameboard ng-show="playing"></gameboard>
     </main>
@@ -17,7 +18,6 @@
             <source src="sound/Silly.mp3" type="audio/mp3"/>
         </audio>
     </div>
-    <script type="text/javascript" src="../../thirdparty/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>
