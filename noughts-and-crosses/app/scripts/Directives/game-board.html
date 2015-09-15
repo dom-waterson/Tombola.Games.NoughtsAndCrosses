@@ -1,4 +1,7 @@
-<div class="gameboard">
+<div ng-hide="playing">
+    <button ng-click="createGameboard('{{player1}}', '{{player2}}')">Start!</button>
+</div>
+<div class="gameboard" ng-show="playing">
     <div class="gameboardRow">
         <div class="gameboardSquare player{{gameboard.board[0]}}" ng-click="gameboardClicked(0);"></div>
         <div class="gameboardSquare player{{gameboard.board[1]}}" ng-click="gameboardClicked(1);"></div>
