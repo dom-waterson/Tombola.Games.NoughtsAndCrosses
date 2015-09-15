@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('Tombola.NoughtsAndCrosses').controller('gameboardController', function($scope){
+    angular.module('Tombola.NoughtsAndCrosses').controller('gameboardController', '$http', function($scope, $http){
         $scope.createGameboard = function(player1, player2){
             $scope.gameboard = {
                 player1 : player1,
@@ -20,6 +20,13 @@
         };
 
         $scope.gameboardClicked = function(squareNumberClicked){
+            $http.post('http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame',
+                {
+                    player1: $scope.gameboard.player1,
+                    player2: $scope.gameboard.player2
+                })
+                .then()
+                .catch();
             if ($scope.gameboard.board.charAt(squareNumberClicked) !== '0'){
                 return;
             }
