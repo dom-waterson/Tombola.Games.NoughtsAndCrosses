@@ -1,23 +1,13 @@
 <div class="playerselection">
     <section class="player">
         <h2>Player 1 = {{player1}}</h2>
-        <img ng-src="images/{{player1}}.png"/>
+        <img ng-src="images/blank.png" class="{{player1}}" ng-click="changePlayerType(1)"/>
     </section>
     <section class="player">
         <h2>Player 2 = {{player2}}</h2>
-        <img ng-src="images/{{player2}}.png"/>
+        <img ng-src="images/blank.png" class="{{player2}}" ng-click="changePlayerType(2)"/>
     </section>
-    <section class="select">
-        <select ng-model="player1">
-            <option value="human">Human</option>
-            <option value="computer">Computer</option>
-            <option value="random">Random</option>
-        </select>
-        <select ng-model="player2">
-            <option value="human">Human</option>
-            <option value="computer">Computer</option>
-            <option value="random">Random</option>
-        </select>
-    </section>
-    <button ng-click="createGameboard()">Start!</button>
+    <div>
+        <button ng-click="createGameboard()">Start!</button>
+    </div>
 </div>

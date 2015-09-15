@@ -36,6 +36,27 @@
                 $scope.gameboard.playerTurn = 1;
             }
         };
+
+        $scope.changePlayerType = function(playerNumber){
+            if(playerNumber === 1){
+                $scope.player1 = playerChanger($scope.player1);
+            }
+            if(playerNumber === 2){
+                $scope.player2 = playerChanger($scope.player2);
+            }
+        };
+
+        var playerChanger = function(player){
+            if (player === 'human'){
+                return 'computer';
+            }
+            else if (player === 'computer'){
+                return 'random';
+            }
+            else{
+                return 'human';
+            }
+        };
     });
 
     var winConditions = [
