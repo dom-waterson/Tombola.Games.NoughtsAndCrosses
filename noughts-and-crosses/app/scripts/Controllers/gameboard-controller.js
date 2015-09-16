@@ -4,6 +4,7 @@
         .controller('gameboardController', ['$scope', '$http', 'PromiseHandler', 'PlayerSelectionService', function($scope, $http, promiseHandler, playerSelectionService){
             $scope.model = playerSelectionService;
             $scope.currentGameState = '';
+            $scope.playerWinner = '';
             $scope.createGameboard = function(){
                 $scope.gameboard = {
                     player1 : playerSelectionService.player1Type,
@@ -27,6 +28,8 @@
 
             $scope.resetGame = function(){
                 $scope.playing = false;
+                $scope.currentGameState = '';
+                $scope.playerWinner = '';
             };
 
             $scope.gameboardClicked = function(squareNumberClicked){
@@ -36,6 +39,7 @@
                 promiseHandler.makeMove($scope.gameboard.playerTurn, squareNumberClicked)
                     .then(function(response){
                         $scope.gameboard.board = response.gameboard;
+                        $scope.currentGameState = response.outcome;
                         if($scope.gameboard.player1 === 'human' && $scope.gameboard.player2 === 'human') {
                             if ($scope.gameboard.playerTurn === 1) {
                                 $scope.gameboard.playerTurn = 2;
@@ -44,7 +48,14 @@
                                 $scope.gameboard.playerTurn = 1;
                             }
                         }
-                        $scope.currentGameState = response.outcome;
+                        if(response.outcome === 'Win'){
+                            if(response.winner === '1'){
+                                $scope.playerWinner = 'player 1';
+                            }
+                            else{
+                                $scope.playerWinner = 'player 2';
+                            }
+                        }
                     })
                     .catch(function(response){
                         alert('There was an error: ' + response);
