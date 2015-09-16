@@ -2,9 +2,8 @@
     'use strict';
     angular.module('Tombola.NoughtsAndCrosses')
         .controller('gameboardController', ['$scope', '$http', 'PromiseHandler', 'PlayerSelectionService', function($scope, $http, promiseHandler, playerSelectionService){
-            $scope.status='';
-            $scope.data='';
             $scope.model = playerSelectionService;
+            $scope.currentGameState = '';
             $scope.createGameboard = function(){
                 $scope.gameboard = {
                     player1 : playerSelectionService.player1Type,
@@ -16,6 +15,7 @@
                 promiseHandler.prepareGame($scope.gameboard.player1, $scope.gameboard.player2)
                     .then(function(response){
                         $scope.gameboard.board = response.gameboard;
+                        $scope.currentGameState = response.outcome;
                         if($scope.gameboard.player1==='pre-trained'){
                             $scope.gameboard.playerTurn = 2;
                         }
@@ -23,10 +23,6 @@
                     .catch(function(response){
                         alert('There was an error: ' + response);
                     });
-            };
-
-            var updateGameboard = function(index){
-                $scope.gameboard.board = $scope.gameboard.board.substr(0,index) + $scope.gameboard.playerTurn + $scope.gameboard.board.substr(index+1);
             };
 
             $scope.resetGame = function(){
@@ -40,12 +36,15 @@
                 promiseHandler.makeMove($scope.gameboard.playerTurn, squareNumberClicked)
                     .then(function(response){
                         $scope.gameboard.board = response.gameboard;
-                        if($scope.gameboard.playerTurn===1){
-                            $scope.gameboard.playerTurn = 2;
+                        if($scope.gameboard.player1 === 'human' && $scope.gameboard.player2 === 'human') {
+                            if ($scope.gameboard.playerTurn === 1) {
+                                $scope.gameboard.playerTurn = 2;
+                            }
+                            else {
+                                $scope.gameboard.playerTurn = 1;
+                            }
                         }
-                        else{
-                            $scope.gameboard.playerTurn = 1;
-                        }
+                        $scope.currentGameState = response.outcome;
                     })
                     .catch(function(response){
                         alert('There was an error: ' + response);
