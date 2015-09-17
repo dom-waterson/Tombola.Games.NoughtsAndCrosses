@@ -1,23 +1,23 @@
 <div ng-hide="playing">
-    <button ng-click="createGameboard()">Start!</button>
+    <button ng-click="model.createGameboard()">Start!</button>
 </div>
-<div class="gameboard" ng-show="playing">
+<div class="gameboard" ng-show="model.playing">
     <div class="gameboardRow">
-        <div class="gameboardSquare player{{gameboard.board[0]}}" ng-click="gameboardClicked(0);"></div>
-        <div class="gameboardSquare player{{gameboard.board[1]}}" ng-click="gameboardClicked(1);"></div>
-        <div class="gameboardSquare player{{gameboard.board[2]}}" ng-click="gameboardClicked(2);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[0]}}" ng-click="model.gameboardClicked(0);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[1]}}" ng-click="model.gameboardClicked(1);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[2]}}" ng-click="model.gameboardClicked(2);"></div>
     </div>
     <div class="gameboardRow">
-        <div class="gameboardSquare player{{gameboard.board[3]}}" ng-click="gameboardClicked(3);"></div>
-        <div class="gameboardSquare player{{gameboard.board[4]}}" ng-click="gameboardClicked(4);"></div>
-        <div class="gameboardSquare player{{gameboard.board[5]}}" ng-click="gameboardClicked(5);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[3]}}" ng-click="model.gameboardClicked(3);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[4]}}" ng-click="model.gameboardClicked(4);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[5]}}" ng-click="model.gameboardClicked(5);"></div>
     </div>
     <div class="gameboardRow">
-        <div class="gameboardSquare player{{gameboard.board[6]}}" ng-click="gameboardClicked(6);"></div>
-        <div class="gameboardSquare player{{gameboard.board[7]}}" ng-click="gameboardClicked(7);"></div>
-        <div class="gameboardSquare player{{gameboard.board[8]}}" ng-click="gameboardClicked(8);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[6]}}" ng-click="model.gameboardClicked(6);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[7]}}" ng-click="model.gameboardClicked(7);"></div>
+        <div class="gameboardSquare player{{model.gameboard.board[8]}}" ng-click="model.gameboardClicked(8);"></div>
     </div>
 </div>
-<button ng-click="resetGame()">Reset</button>
-<p>{{gameboard.board}}</p>
-<p>{{currentGameState}} {{playerWinner}}</p>
+<button ng-click="model.resetGame()">Reset</button>
+<p>{{model.gameboard.board}}</p>
+<p>{{model.currentGameState}} {{model.playerWinner}}</p>
