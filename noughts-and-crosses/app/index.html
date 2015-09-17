@@ -5,14 +5,11 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>test-app</title>
     <script type="text/javascript" src="../../thirdparty/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../../thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
 </head>
 <body>
     <p>Prepare your anus</p>
-    <main ng-cloak>
-        <player-selection ng-controller="playerSelectionController"></player-selection>
-        <gameboard ng-controller="gameboardController"></gameboard>
-        <absolute-majesty></absolute-majesty>
-        <script type="text/javascript" src="scripts/app.js"></script>
-    </main>
+    <main ng-cloak ui-view></main>
 </body>
 </html>

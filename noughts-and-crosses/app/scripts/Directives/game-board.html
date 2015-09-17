@@ -1,7 +1,4 @@
-<div ng-hide="playing">
-    <button ng-click="model.createGameboard()">Start!</button>
-</div>
-<div class="gameboard" ng-show="model.playing">
+<div class="gameboard">
     <div class="gameboardRow">
         <div class="gameboardSquare player{{model.gameboard.board[0]}}" ng-click="model.gameboardClicked(0);"></div>
         <div class="gameboardSquare player{{model.gameboard.board[1]}}" ng-click="model.gameboardClicked(1);"></div>
@@ -18,6 +15,6 @@
         <div class="gameboardSquare player{{model.gameboard.board[8]}}" ng-click="model.gameboardClicked(8);"></div>
     </div>
 </div>
-<button ng-click="model.resetGame()">Reset</button>
+<button ng-click="model.resetGame()" ui-sref="playerSelection">Reset</button>
 <p>{{model.gameboard.board}}</p>
 <p>{{model.currentGameState}} {{model.playerWinner}}</p>
