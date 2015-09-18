@@ -4,12 +4,7 @@
         .service('PlayerSelectionService', function(){
             var me = this,
                 changePlayerType = function(playerNumber){
-                    if(playerNumber === 1){
-                        me.player1Type = playerChanger(me.player1Type);
-                    }
-                    if(playerNumber === 2){
-                        me.player2Type = playerChanger(me.player2Type);
-                    }
+                    me.players[playerNumber] = playerChanger(me.players[playerNumber]);
                 },
 
                 playerChanger = function(player){
@@ -24,14 +19,13 @@
                     }
                 };
 
-            me.player1Type = 'human';
-            me.player2Type = 'human';
+            me.players = ['human','human'];
             me.playing = false;
             me.togglePlayer1Type = function(){
-                changePlayerType(1);
+                changePlayerType(0);
             };
             me.togglePlayer2Type = function(){
-                changePlayerType(2);
+                changePlayerType(1);
             };
     });
 })();

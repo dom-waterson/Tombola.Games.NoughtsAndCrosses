@@ -7,8 +7,8 @@
             me.playerWinner = '';
             me.createGameboard = function(){
                 me.gameboard = {
-                    player1 : playerSelectionService.player1Type,
-                    player2 : playerSelectionService.player2Type,
+                    player1 : playerSelectionService.players[0],
+                    player2 : playerSelectionService.players[1],
                     board : '000000000',
                     playerTurn : 1
                 };
