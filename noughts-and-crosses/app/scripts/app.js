@@ -6,12 +6,12 @@
             $stateProvider
                 .state('playerSelection', {
                     url: '/playerSelection',
-                    template: '<player-selection></player-selection> <absolute-majesty></absolute-majesty>',
+                    template: '<player-selection></player-selection>',
                     controller: 'playerSelectionController'
                 })
                 .state('gameboard', {
                     url: '/gameboard',
-                    template: '<gameboard></gameboard> <absolute-majesty></absolute-majesty>',
+                    template: '<gameboard></gameboard>',
                     controller: 'gameboardController'
                 });
         }]);

@@ -1,7 +1,8 @@
 (function () {
     'use strict';
     angular.module('Tombola.NoughtsAndCrosses')
-        .controller('gameboardController', ['$scope', '$http', 'GameboardService', function($scope, $http, gameboardService){
-            $scope.model = gameboardService;
+        .controller('gameboardController', ['$scope', '$http', 'GameboardService', 'GameboardClickerService', function($scope, $http, gameboardService, gameboardClickerService){
+            $scope.gameboardModel = gameboardService;
+            $scope.gameboardClickerModel = gameboardClickerService;
         }]);
 })();
