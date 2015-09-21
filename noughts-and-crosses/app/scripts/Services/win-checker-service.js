@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('Tombola.NoughtsAndCrosses')
-        .service('WinCheckerService', function(){
+        .service('WinCheckerService', ['GameboardService' ,function(gameboardService){
             var me = this;
 
             var winningMoves = [
@@ -18,12 +18,12 @@
             me.checkWin = function(playerWinner){
                 var i;
                 for(i=0; i<winningMoves.length; i++){
-                    if(winningMoves[i][0] === playerWinner &&
-                        winningMoves[i][1] === playerWinner &&
-                        winningMoves[i][2] === playerWinner){
+                    if(gameboardService.gameboard.board[winningMoves[i][0]] === playerWinner &&
+                        gameboardService.gameboard.board[winningMoves[i][1]] === playerWinner &&
+                        gameboardService.gameboard.board[winningMoves[i][2]] === playerWinner){
                         return winningMoves[i];
                     }
                 }
             };
-    });
+    }]);
 })();
