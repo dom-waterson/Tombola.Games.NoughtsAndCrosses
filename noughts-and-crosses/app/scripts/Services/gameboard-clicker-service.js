@@ -26,7 +26,7 @@
                 };
 
             me.gameboardClicked = function(squareNumberClicked){
-                if (gameboardService.gameboard.board.charAt(squareNumberClicked) !== '0'){
+                if (gameboardService.gameboard.board.charAt(squareNumberClicked) !== '0' || gameboardService.currentGameState === 'Win'){
                     return;
                 }
                 promiseHandler.makeMove(gameboardService.gameboard.playerTurn, squareNumberClicked)
