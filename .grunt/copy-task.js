@@ -22,7 +22,7 @@
         mainappbower: {
             cwd: '',
             src: ['bower_components/**/*.*'],
-            dest: '.build/thirdparty/',
+            dest: '.build/noughts-and-crosses/app/thirdparty/',
             expand: true
         }
     };
