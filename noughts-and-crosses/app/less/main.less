@@ -1,4 +1,69 @@
 @mainbg: #700b0b;
+@mainTextColor: #CCCCCC;
 body {
   background-color: @mainbg;
+  color: @mainTextColor;
+  .centred {
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .player {
+    display:inline;
+    .human, .pre-trained, .random{
+      background: url(../images/playerSelectionSheet.png);
+      max-width: 50px;
+      max-height: 50px;
+      width: 50px;
+      height: 50px;
+    }
+    .human{
+      background-position: 0 0;
+    }
+    .pre-trained{
+      background-position: 100px 0;
+    }
+    .random{
+      background-position: 50px 0;
+    }
+  }
+  .gameboard{
+    width: 156px;
+    height: 152px;
+    max-width: 156px;
+    max-height: 152px;
+    border-width:3px;
+    border-style:solid;
+    border-color: @mainTextColor;
+    display: table;
+    .gameboardRow {
+      display: table-row;
+      width: 156px;
+      height: 50px;
+      max-width: 156px;
+      max-height: 50px;
+      .gameboardSquare {
+        display: table-cell;
+        border-width: 1px;
+        border-style: dashed;
+        align-items: center;
+        Width: 50px;
+        height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+      }
+      .player1, .player2 {
+        background: url(../images/playerSheet.png);
+        max-height: 50px;
+        max-width: 50px;
+        width: 50px;
+        height: 50px;
+      }
+      .player1 {
+        background-position: 0 0;
+      }
+      .player2 {
+        background-position: 50px 0;
+      }
+    }
+  }
 }

@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <title>test-app</title>
+    <title>Noughts and crosses!</title>
+    <script type="text/javascript" src="thirdparty/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
 </head>
 <body>
-    <p>Prepare your anus</p>
-
-    <div class="majesty">
-    <img src="images/Majesty.jpg"/>
-        <audio controls loop autoplay>
-            <source src="sound/Silly.mp3" type="audio/mp3"/>
-        </audio>
-    </div>
-    <script type="text/javascript" src="../../thirdparty/bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="scripts/app.js"></script>
+    <p class="centred">Prepare your anus</p>
+    <main ng-cloak ui-view></main>
+    <footer>
+        <div class="majesty">
+            <div><img src="images/Majesty.jpg" alt="Picture of pure majesty"/></div>
+            <div><img src="images/MajestyMK2.jpg" alt="Picture of pure majesty MK2"/></div>
+            <audio controls loop>
+                <source src="sound/Silly.mp3" type="audio/mp3"/>
+            </audio>
+        </div>
+    </footer>
 </body>
 </html>

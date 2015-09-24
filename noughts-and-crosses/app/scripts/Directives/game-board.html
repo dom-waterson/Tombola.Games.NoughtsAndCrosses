@@ -1,0 +1,22 @@
+<div class="gameboard">
+    <div class="gameboardRow">
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[0]}}" ng-click="gameboardClickerModel.gameboardClicked(0);"></div>
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[1]}}" ng-click="gameboardClickerModel.gameboardClicked(1);"></div>
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[2]}}" ng-click="gameboardClickerModel.gameboardClicked(2);"></div>
+    </div>
+    <div class="gameboardRow">
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[3]}}" ng-click="gameboardClickerModel.gameboardClicked(3);"></div>
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[4]}}" ng-click="gameboardClickerModel.gameboardClicked(4);"></div>
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[5]}}" ng-click="gameboardClickerModel.gameboardClicked(5);"></div>
+    </div>
+    <div class="gameboardRow">
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[6]}}" ng-click="gameboardClickerModel.gameboardClicked(6);"></div>
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[7]}}" ng-click="gameboardClickerModel.gameboardClicked(7);"></div>
+        <div class="gameboardSquare player{{gameboardModel.gameboard.board[8]}}" ng-click="gameboardClickerModel.gameboardClicked(8);"></div>
+    </div>
+</div>
+<button ng-click="gameboardModel.resetGame()" ui-sref="playerSelection">Reset</button>
+<div>
+    <p>{{gameboardModel.gameboard.board}}</p>
+    <p>{{gameboardModel.currentGameState}} {{gameboardModel.playerWinner}}</p>
+</div>
