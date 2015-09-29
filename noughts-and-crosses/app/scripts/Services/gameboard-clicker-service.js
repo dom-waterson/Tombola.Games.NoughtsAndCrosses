@@ -1,17 +1,16 @@
 (function () {
     'use strict';
     angular.module('Tombola.NoughtsAndCrosses')
-        .service('GameboardClickerService', ['GameboardService', 'PromiseHandler', 'WinCheckerService', function(gameboardService, promiseHandler, winCheckerService){
+        .service('GameboardClickerService', ['$state', 'GameboardService', 'PromiseHandler', 'WinCheckerService', function($state, gameboardService, promiseHandler, winCheckerService){
             var me = this,
                 checkOutcome = function(response){
                     if(response.outcome === 'Win'){
-                        if(response.winner === '1'){
-                            gameboardService.playerWinner = 'player 1';
-                        }
-                        else{
-                            gameboardService.playerWinner = 'player 2';
-                        }
+                        gameboardService.playerWinner = 'Player ' + response.winner;
                         winCheckerService.checkWin(response.winner);
+                        $state.go('win');
+                    }
+                    else if(response.outcome === 'Draw'){
+                        $state.go('draw');
                     }
                 },
                 changePlayer = function(){

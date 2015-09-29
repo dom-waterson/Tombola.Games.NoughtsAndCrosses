@@ -13,6 +13,16 @@
                     url: '/gameboard',
                     template: '<gameboard></gameboard>',
                     controller: 'gameboardController'
+                })
+                .state('win', {
+                    url: '/win',
+                    template: '<win-state></win-state>',
+                    controller: 'gameboardController'
+                })
+                .state('draw', {
+                    url: '/draw',
+                    template: '<draw-state></draw-state>',
+                    controller: 'gameboardController'
                 });
         }]);
 })();
