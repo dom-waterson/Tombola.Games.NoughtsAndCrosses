@@ -13,6 +13,10 @@
                     url: '/gameboard',
                     template: '<gameboard></gameboard>',
                     controller: 'gameboardController'
+                })
+                .state('rules', {
+                    url: '/rules',
+                    template: '<rules></rules>'
                 });
         }]);
 })();
