@@ -1,6 +1,8 @@
 @mainbg: #700b0b;
 @mainTextColor: #CCCCCC;
+@sillyBorderColor: #0000CD;
 body {
+  background-color: @mainbg;
   color: @mainTextColor;
   .centred {
     margin-left:auto;
@@ -10,8 +12,6 @@ body {
     display:inline;
     .human, .pre-trained, .random{
       background: url(../images/playerSelectionSheet.png);
-      max-width: 50px;
-      max-height: 50px;
       width: 50px;
       height: 50px;
     }
@@ -28,18 +28,13 @@ body {
   .gameboard{
     width: 156px;
     height: 152px;
-    max-width: 156px;
-    max-height: 152px;
     border-width:3px;
     border-style:solid;
-    border-color: @mainTextColor;
     display: table;
     .gameboardRow {
       display: table-row;
       width: 156px;
       height: 50px;
-      max-width: 156px;
-      max-height: 50px;
       .gameboardSquare {
         display: table-cell;
         border-width: 1px;
@@ -47,12 +42,8 @@ body {
         align-items: center;
         Width: 50px;
         height: 50px;
-        max-width: 50px;
-        max-height: 50px;
       }
       .player1, .player2 {
-        max-height: 50px;
-        max-width: 50px;
         width: 50px;
         height: 50px;
       }
@@ -62,6 +53,7 @@ body {
   .default{
     background-color: @mainbg;
     .gameboard{
+      border-color: @mainTextColor;
       .gameboardRow{
         .player1, .player2{
           background: url(../images/playerSheet.png);
@@ -72,6 +64,9 @@ body {
         .player2 {
           background-position: 50px 0;
         }
+        .gameboardSquare{
+          border-color: @mainTextColor;
+        }
       }
     }
   }
@@ -79,6 +74,7 @@ body {
   .silly{
     background: url(../images/Majesty.jpg);
     .gameboard{
+      border-color: @sillyBorderColor;
       .gameboardRow{
         .player1, .player2{
           background: url(../images/playerSheetSilly.png);
@@ -88,6 +84,9 @@ body {
         }
         .player2 {
           background-position: 50px 0;
+        }
+        .gameboardSquare{
+          border-color: @sillyBorderColor;
         }
       }
     }
