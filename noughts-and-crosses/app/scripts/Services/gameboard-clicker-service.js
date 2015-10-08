@@ -35,6 +35,7 @@
                         gameboardService.currentGameState = response.outcome;
                         changePlayer();
                         checkOutcome(response);
+                        soundService.playGameSound(7, 743);
                     })
                     .catch(function(response){
                         alert('There was an error: ' + response);
