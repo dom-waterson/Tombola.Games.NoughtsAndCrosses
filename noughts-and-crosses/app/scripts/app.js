@@ -23,6 +23,10 @@
                     url: '/draw',
                     template: '<draw-state></draw-state>',
                     controller: 'gameboardController'
+                })
+                .state('rules', {
+                    url: '/rules',
+                    template: '<rules></rules>'
                 });
         }]);
 })();
