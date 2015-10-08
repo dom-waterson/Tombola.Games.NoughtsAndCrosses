@@ -14,7 +14,7 @@
             src: ['.build/noughts-and-crosses/app/sound/']
         },
         html:{
-            src: ['.build/noughts-and-crosses/app/*.html']
+            src: ['.build/noughts-and-crosses/app/*.html', '.build/noughts-and-crosses/app/scripts/Directives/*.html']
         }
     };
 })();
