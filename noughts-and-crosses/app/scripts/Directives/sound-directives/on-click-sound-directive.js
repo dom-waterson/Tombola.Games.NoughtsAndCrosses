@@ -5,7 +5,7 @@
             return {
                 restrict: 'E',
                 link: function postlink (scope, iElement, iAttrs, controller){
-                    iElement.append(angular.element('<audio controls autoplay><source src="sound/Silly.mp3" type="audio/mp3"/></audio>'));
+                    iElement.append(angular.element('<audio><source src="sound/Silly.mp3" type="audio/mp3"/></audio>'));
                 }
             };
 
