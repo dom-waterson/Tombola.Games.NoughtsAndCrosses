@@ -7,7 +7,8 @@
         lessTask = require('./.grunt/less-task'),
         cleanTask = require('./.grunt/clean-task'),
         server = require('./server/server.js'),
-        watchTask = require('./.grunt/watcher-task');
+        watchTask = require('./.grunt/watcher-task'),
+        karmaTask = require('./.grunt/karma-task');
     module.exports = function(grunt){
         grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
@@ -17,7 +18,8 @@
             jshint: lintjsTask,
             concat: concatjsTask,
             clean: cleanTask,
-            watch: watchTask
+            watch: watchTask,
+            karma: karmaTask
         });
         grunt.loadNpmTasks('grunt-contrib-copy');
         grunt.loadNpmTasks('grunt-lesslint');
@@ -27,6 +29,8 @@
         grunt.loadNpmTasks('grunt-contrib-clean');
         grunt.loadNpmTasks('grunt-contrib-watch');
         grunt.loadNpmTasks('grunt-express-server');
+        grunt.loadNpmTasks('grunt-karma');
+        grunt.registerTask('tests', ['jshint:javascript', 'jshint:tests', 'karma']);
         grunt.registerTask('lessFiles', ['lesslint', 'clean:css', 'less']);
         grunt.registerTask('JSFiles', ['jshint', 'clean:javascript', 'concat']);
         grunt.registerTask('htmlFiles', ['clean:html', 'copy:mainapphtml']);
