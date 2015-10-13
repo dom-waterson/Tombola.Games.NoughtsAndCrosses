@@ -12,11 +12,13 @@
             me.currentlyPlaying = false;
 
             me.playGameSound = function(startTime, duration){
-                audio = angular.element('#soundplayer');
-                audio.prop('currentTime', startTime);
-                audio.get(0).play();
-                me.currentlyPlaying = true;
-                $timeout(stopAudio, duration, true);
+                if(!me.currentlyPlaying) {
+                    audio = angular.element('#soundplayer');
+                    audio.prop('currentTime', startTime);
+                    audio.get(0).play();
+                    me.currentlyPlaying = true;
+                    $timeout(stopAudio, duration, true);
+                }
             };
         }]);
 })();
