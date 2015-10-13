@@ -20,6 +20,10 @@
         watchsounds: {
             files: ['noughts-and-crosses/app/sound/*.*'],
             tasks: ['soundFiles']
+        },
+        watchtests: {
+            files: ['noughts-and-crosses/tests/**/*.js'],
+            tasks: ['tests']
         }
     }
 })();
