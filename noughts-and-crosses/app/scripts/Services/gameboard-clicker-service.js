@@ -25,6 +25,17 @@
                 },
                 changeToEndState = function(endState){
                     $state.go(endState);
+                    if(endState === 'win'){
+                        soundService.playGameSound(8, 1484);
+                    }
+                    else{
+                        if(themeChangerService.theme === 'default'){
+                            soundService.playGameSound(2, 2847);
+                        }
+                        else{
+                            soundService.playGameSound(0, 1484);
+                        }
+                    }
                 };
 
             me.gameboardClicked = function(squareNumberClicked){
