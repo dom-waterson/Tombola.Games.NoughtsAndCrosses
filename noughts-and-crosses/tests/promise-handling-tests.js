@@ -29,6 +29,22 @@
             result.should.be.deep.equal(expectedData);
         });
 
+        it('should complete a full game on the server with non human players', function(){
+            var dataToSend = {player1: 'pre-trained', player2: 'random'},
+                expectedData = {outcome: 'Win', gameboard: '111022000', winner: 1},
+                result;
+            httpBackend.expectPOST('http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame', dataToSend)
+                .respond(expectedData);
+
+            promiseHandler.prepareGame(dataToSend.player1, dataToSend.player2)
+                .then(function(response){
+                    result = response;
+                });
+            httpBackend.flush();
+
+            result.outcome.should.not.equal('Continue');
+        });
+
         it('should send and receive a valid make move response', function(){
             var dataToSend = {playerNumber: 1, chosenSquare: 3},
                 expectedData = {outcome: 'Continue', gameboard: '000100000'},
