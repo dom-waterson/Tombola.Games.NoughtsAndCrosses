@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('Tombola.NoughtsAndCrosses')
-        .service('GameboardClickerService', ['$state', '$timeout', 'GameboardService', 'PromiseHandler', 'WinCheckerService', function($state, $timeout, gameboardService, promiseHandler, winCheckerService){
+        .service('GameboardClickerService', ['$state', '$timeout', 'GameboardService', 'PromiseHandler', 'WinCheckerService', 'SoundService', 'ThemeChangerService', function($state, $timeout, gameboardService, promiseHandler, winCheckerService, soundService, themeChangerService){
             var me = this,
                 checkOutcome = function(response){
                     if(response.outcome === 'Win'){
@@ -37,6 +37,12 @@
                         gameboardService.currentGameState = response.outcome;
                         changePlayer();
                         checkOutcome(response);
+                        if(themeChangerService.theme === 'default'){
+                            soundService.playGameSound(5, 1291);
+                        }
+                        else{
+                            soundService.playGameSound(7, 743);
+                        }
                     })
                     .catch(function(response){
                         alert('There was an error: ' + response);
