@@ -1,4 +1,4 @@
-<div class="playerselection">
+<div ng-class="themeChangerModel.theme" class="playerselection">
     <section class="player">
         <h2>Player 1 = {{model.players[0]}}</h2>
         <img ng-src="images/blank.png" class="{{model.players[0]}}" ng-click="model.togglePlayer1Type()"/>
