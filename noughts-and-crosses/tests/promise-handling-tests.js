@@ -1,3 +1,42 @@
 (function () {
     'use strict';
+    describe('Promise handling tests', function(){
+        var httpBackend,
+            promiseHandler;
+
+        beforeEach(function(){
+            module('Tombola.NoughtsAndCrosses');
+
+            inject(function($httpBackend, _PromiseHandler_){
+                httpBackend = $httpBackend;
+                promiseHandler = _PromiseHandler_;
+            });
+        });
+
+        it('should send an receive a valid new game response', function(){
+            var dataToSend = {player1: 'human', player2: 'human'},
+                expectedData = {outcome: 'Continue', gameboard: '000000000', winner: 0};
+            httpBackend.expectPOST('http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame', dataToSend)
+                .respond(expectedData);
+
+            var promise = promiseHandler.prepareGame(dataToSend.player1, dataToSend.player2),
+                result;
+
+            promise.then(function(response){
+                result = response;
+            });
+            httpBackend.flush();
+
+            result.should.be.deepEqual(expectedData);
+        });
+
+        it('should send and receive a valid make move response', function(){
+
+        });
+
+        afterEach(function(){
+            httpBackend.verifyNoOutstandingExpectation();
+            httpBackend.verifyNoOutstandingRequest();
+        });
+    });
 })();
