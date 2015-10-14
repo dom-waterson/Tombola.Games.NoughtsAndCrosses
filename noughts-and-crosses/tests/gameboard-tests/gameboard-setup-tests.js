@@ -2,16 +2,19 @@
     'use strict';
     describe('gameboard setup testing', function(){
         var playerSelectionMock,
-            GameboardService;
+            GameboardService,
+            sandbox;
 
         beforeEach(function(){
             module('Tombola.NoughtsAndCrosses', function($provide){
-                playerSelectionMock = {};
-                $provide.value('playerSelectionMock', playerSelectionMock);
+                $provide.value('PlayerSelectionService', mocks.playerSelectionService);
             });
+            sandbox = sinon.sandbox.create();
             inject(function(_GameboardService_){
                 GameboardService = _GameboardService_;
             });
+
+            playerSelectionMock = sinon.sandbox.mock(mocks.playerSelectionService);
         });
 
         it('should initialize the gameboard to 000000000', function(){
@@ -21,12 +24,12 @@
 
         it('should setup player1 correctly', function(){
             GameboardService.createGameboard();
-            GameboardService.gameboard.player1.should.be.deep.equal('human');
+            GameboardService.gameboard.player1.should.equal(mocks.playerSelectionService.players[0]);
         });
 
         it('should setup player2 correctly', function(){
             GameboardService.createGameboard();
-            GameboardService.gameboard.player2.should.be.deep.equal('human');
+            GameboardService.gameboard.player2.should.equal(mocks.playerSelectionService.players[1]);
         });
 
         it('should set the turn to player 1 to begin with', function(){
@@ -47,6 +50,11 @@
             GameboardService.currentGameState.should.equal('');
             GameboardService.playing.should.equal(false);
             GameboardService.playerWinner.should.equal('');
+        });
+
+        afterEach(function(){
+            playerSelectionMock.verify();
+            sandbox.restore();
         });
     });
 })();
