@@ -43,8 +43,18 @@ var mocks = {
             else{
                 return {gameboard: '200000000'};
             }
-
         },
         prepareGame: function(){}
+    },
+
+    gameboardClickerService:{
+        checkOutcome: function(response){},
+        changePlayer: function(){},
+        gameboardClicked: function(squareNumberClicked){}
+    },
+
+    themeChangerService:{
+        theme: 'default',
+        switchTheme: function(){}
     }
 };
