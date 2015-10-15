@@ -1,18 +1,4 @@
 'use strict';
-//sandbox = sinon.sandBox.create();
-//inject(function($injector){
-// $service = $injector.get('$service');
-//}
-
-//serviceMock = sinon.sandBox.mock(mocks.serviceName);
-
-//$provide.value('serviceName', mocks.serviceName);
-
-//afterEach(function(){
-// serviceMock.verify();
-// sandbox.restore();
-//}
-
 var mocks = {
     gameboardService: {
         currentGameState: '',
