@@ -1,8 +1,9 @@
 (function () {
     'use strict';
     angular.module('Tombola.NoughtsAndCrosses')
-        .service('GameboardClickerService', ['$state', '$timeout', 'GameboardService', 'PromiseHandler', 'WinCheckerService', 'SoundService', 'ThemeChangerService', function($state, $timeout, gameboardService, promiseHandler, winCheckerService, soundService, themeChangerService){
+        .service('GameboardClickerService', ['$state', '$timeout', 'GameboardService', 'PromiseHandler', 'WinCheckerService', 'SoundService', 'SoundConstants', 'ThemeChangerService', function($state, $timeout, gameboardService, promiseHandler, winCheckerService, soundService, soundConstants, themeChangerService){
             var me = this,
+                soundData = soundConstants,
                 checkOutcome = function(response){
                     if(response.outcome === 'Win'){
                         gameboardService.playerWinner = 'Player ' + response.winner;
@@ -26,14 +27,14 @@
                 changeToEndState = function(endState){
                     $state.go(endState);
                     if(endState === 'win'){
-                        soundService.playGameSound(8, 1484);
+                        soundService.playGameSound(soundData.VICTORY_START, soundData.VICTORY_DURATION);
                     }
                     else{
                         if(themeChangerService.theme === 'default'){
-                            soundService.playGameSound(2, 2847);
+                            soundService.playGameSound(soundData.DEFAULT_LOSE_STATE_START, soundData.DEFAULT_LOSE_STATE_DURATION);
                         }
                         else{
-                            soundService.playGameSound(0, 1484);
+                            soundService.playGameSound(soundData.SILLY_LOSE_STATE_START, soundData.SILLY_LOSE_STATE_DURATION);
                         }
                     }
                 };
@@ -49,10 +50,10 @@
                         changePlayer();
                         checkOutcome(response);
                         if(themeChangerService.theme === 'default'){
-                            soundService.playGameSound(5, 1291);
+                            soundService.playGameSound(soundData.DEFAULT_PLAYER_CLICK_START, soundData.DEFAULT_PLAYER_CLICK_DURATION);
                         }
                         else{
-                            soundService.playGameSound(7, 743);
+                            soundService.playGameSound(soundData.SILLY_PLAYER_CLICK_START, soundData.SILLY_PLAYER_CLICK_DURATION);
                         }
                     })
                     .catch(function(response){
