@@ -24,18 +24,21 @@
             gameboardMock = sinon.sandbox.mock(mocks.gameboardService);
             gameboardClickerMock = sinon.sandbox.mock(mocks.gameboardClickerService);
             themeChangerMock = sinon.sandbox.mock(mocks.themeChangerService);
+            controller.gameboardModel = mocks.gameboardService;
+            controller.gameboardClickerModel = mocks.gameboardClickerService;
+            controller.themeChangerModel = mocks.themeChangerService;
         });
 
         it('instantiates the gameboard model correctly', function(){
-            controller.gameboardModel.should.be.deep.equal(mocks.gameboardService);
+            controller.gameboardModel.should.equal(mocks.gameboardService);
         });
 
         it('instantiates the gameboard clicker model correctly', function(){
-
+            controller.gameboardClickerModel.should.equal(mocks.gameboardClickerService);
         });
 
         it('instantiates the theme changer model correctly', function(){
-
+            controller.themeChangerModel.should.equal(mocks.themeChangerService);
         });
     });
 })();
