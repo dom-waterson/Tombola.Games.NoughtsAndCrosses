@@ -10,9 +10,9 @@
                 $provide.value('PlayerSelectionService', mocks.playerSelectionService);
             });
             sandbox = sinon.sandbox.create();
-            inject(function(_GameboardService_){
-                GameboardService = _GameboardService_;
-            });
+            inject(['GameboardService', function(_gameboardService_){
+                GameboardService = _gameboardService_;
+            }]);
 
             playerSelectionMock = sinon.sandbox.mock(mocks.playerSelectionService);
         });

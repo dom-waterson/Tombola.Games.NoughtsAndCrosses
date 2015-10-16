@@ -14,11 +14,11 @@
                 $provide.value('PromiseHandler', mocks.promiseHandler);
             });
             sandbox = sinon.sandbox.create();
-            inject(function($state, $timeout, _GameboardClickerService_){
+            inject(['$state', '$timeout', 'GameboardClickerService', function($state, $timeout, _gameboardClickerService_){
                 state = $state;
                 timeout = $timeout;
-                GameboardClickerService = _GameboardClickerService_;
-            });
+                GameboardClickerService = _gameboardClickerService_;
+            }]);
             gameboardMock = sinon.sandbox.mock(mocks.gameboardService);
             promiseHandlerMock = sinon.sandbox.mock(mocks.promiseHandler);
         });
