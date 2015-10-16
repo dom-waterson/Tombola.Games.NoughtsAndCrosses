@@ -4,9 +4,9 @@
         var playerSelectionService;
         beforeEach(function(){
             module('Tombola.NoughtsAndCrosses');
-            inject(function(_PlayerSelectionService_){
-                playerSelectionService = _PlayerSelectionService_;
-            });
+            inject(['PlayerSelectionService', function(_playerSelectionService_){
+                playerSelectionService = _playerSelectionService_;
+            }]);
         });
 
         it('should have the player defaults set to human', function(){

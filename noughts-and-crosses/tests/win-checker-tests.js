@@ -9,9 +9,9 @@
                 $provide.value('GameboardService', mocks.gameboardService);
             });
             sandbox = sinon.sandbox.create();
-            inject(function(_WinCheckerService_){
-                winCheckerService = _WinCheckerService_;
-            });
+            inject(['WinCheckerService', function(_winCheckerService_){
+                winCheckerService = _winCheckerService_;
+            }]);
             gameboardMock = sinon.sandbox.mock(mocks.gameboardService);
         });
 
