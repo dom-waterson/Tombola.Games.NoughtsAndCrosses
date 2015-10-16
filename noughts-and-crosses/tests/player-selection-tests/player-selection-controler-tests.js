@@ -15,12 +15,12 @@
                 $provide.value('ThemeChangerService', mocks.themeChangerService);
             });
             sandbox = sinon.sandbox.create();
-            inject(function($controller, $rootScope){
+            inject(['$controller', '$rootScope', function($controller, $rootScope){
                 scope = $rootScope.$new();
                 controller = $controller('playerSelectionController', {
                     $scope: scope
                 });
-            });
+            }]);
             playerSelectionMock = sinon.sandbox.mock(mocks.playerSelectionService);
             gameboardMock = sinon.sandbox.mock(mocks.gameboardService);
             themeChangerMock = sinon.sandbox.mock(mocks.themeChangerService);
