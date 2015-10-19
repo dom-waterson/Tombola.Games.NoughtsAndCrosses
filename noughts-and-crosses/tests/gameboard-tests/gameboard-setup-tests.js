@@ -52,6 +52,28 @@
             GameboardService.playerWinner.should.equal('');
         });
 
+        it('should change the player turn from 1 to 2 successfully', function(){
+            mocks.playerSelectionService.players = ['human', 'human'];
+            GameboardService.createGameboard();
+            GameboardService.changePlayer();
+            GameboardService.gameboard.playerTurn.should.equal(2);
+        });
+
+        it('should change the player from 2 to 1 successfully', function(){
+            mocks.playerSelectionService.players = ['human', 'human'];
+            GameboardService.createGameboard();
+            GameboardService.gameboard.playerTurn = 2;
+            GameboardService.changePlayer();
+            GameboardService.gameboard.playerTurn.should.equal(1);
+        });
+
+        it('should leave the player turn at 1 if the players arent both human', function(){
+            mocks.playerSelectionService.players = ['human', 'random'];
+            GameboardService.createGameboard();
+            GameboardService.changePlayer();
+            GameboardService.gameboard.playerTurn.should.equal(1);
+        });
+
         afterEach(function(){
             playerSelectionMock.verify();
             sandbox.restore();

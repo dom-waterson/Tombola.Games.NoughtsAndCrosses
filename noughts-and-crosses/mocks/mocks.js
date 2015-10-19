@@ -11,7 +11,8 @@ var mocks = {
             playerTurn: 1
         },
         playing: false,
-        resetGame: function(){}
+        resetGame: function(){},
+        changePlayer: function(){}
     },
 
     playerSelectionService: {
@@ -34,7 +35,6 @@ var mocks = {
     },
 
     gameboardClickerService:{
-        checkOutcome: function(response){},
         changePlayer: function(){},
         gameboardClicked: function(squareNumberClicked){}
     },

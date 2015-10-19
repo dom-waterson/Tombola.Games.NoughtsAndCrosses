@@ -23,31 +23,15 @@
             promiseHandlerMock = sinon.sandbox.mock(mocks.promiseHandler);
         });
 
-        it('should change the player turn from 1 to 2 successfully', function(){
-            GameboardClickerService.changePlayer();
-            mocks.gameboardService.gameboard.playerTurn.should.equal(2);
-        });
-
-        it('should change the player from 2 to 1 successfully', function(){
-            mocks.gameboardService.gameboard.playerTurn = 2;
-            GameboardClickerService.changePlayer();
-            mocks.gameboardService.gameboard.playerTurn.should.equal(1);
-        });
-
-        it('should leave the player turn at 1 if the players arent both human', function(){
-            mocks.gameboardService.gameboard.player1 = 'random';
-            GameboardClickerService.changePlayer();
-            mocks.gameboardService.gameboard.playerTurn.should.equal(1);
-        });
-
         it('should change the state to win if the outcome given is a win', function() {
-            GameboardClickerService.checkOutcome({outcome:'Win'});
+            GameboardClickerService.gameboardClicked(0);
+
             timeout.flush();
             state.current.url.should.equal('/win');
         });
 
         it('should change the state to draw if the outcome given is a draw', function(){
-            GameboardClickerService.checkOutcome({outcome:'Draw'});
+            GameboardClickerService.gameboardClicked(0);
             timeout.flush();
             state.current.url.should.equal('/draw');
         });
@@ -72,13 +56,12 @@
 
         it('should not change the gameboard if the square clicked is already occupied', function(){
             mocks.gameboardService.gameboard.board = '100000000';
-            GameboardClickerService.gameboardClicked();
+            GameboardClickerService.gameboardClicked(0);
             mocks.gameboardService.gameboard.board.should.equal('100000000');
         });
 
         it('should appropriately set the winning player', function(){
-            var testData = {outcome: 'Win', winner: '2'};
-            GameboardClickerService.checkOutcome(testData);
+            GameboardClickerService.gameboardClicked(0);
             mocks.gameboardService.playerWinner.should.equal('Player 2');
         });
 
