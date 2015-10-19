@@ -24,13 +24,14 @@
         });
 
         it('should change the state to win if the outcome given is a win', function() {
+            //TODO
             GameboardClickerService.gameboardClicked(0);
-
             timeout.flush();
             state.current.url.should.equal('/win');
         });
 
         it('should change the state to draw if the outcome given is a draw', function(){
+            //TODO
             GameboardClickerService.gameboardClicked(0);
             timeout.flush();
             state.current.url.should.equal('/draw');
@@ -61,6 +62,7 @@
         });
 
         it('should appropriately set the winning player', function(){
+            //TODO
             GameboardClickerService.gameboardClicked(0);
             mocks.gameboardService.playerWinner.should.equal('Player 2');
         });
