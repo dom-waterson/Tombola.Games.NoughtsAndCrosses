@@ -76,6 +76,12 @@
             mocks.gameboardService.gameboard.board.should.equal('100000000');
         });
 
+        it('should appropriately set the winning player', function(){
+            var testData = {outcome: 'Win', winner: '2'};
+            GameboardClickerService.checkOutcome(testData);
+            mocks.gameboardService.playerWinner.should.equal('Player 2');
+        });
+
         afterEach(function(){
             gameboardMock.verify();
             promiseHandlerMock.verify();
