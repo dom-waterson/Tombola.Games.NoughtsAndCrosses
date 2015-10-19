@@ -31,5 +31,16 @@
                 me.currentGameState = '';
                 me.playerWinner = '';
             };
+
+            me.changePlayer = function(){
+                if(me.gameboard.player1 === 'human' && me.gameboard.player2 === 'human') {
+                    if (me.gameboard.playerTurn === 1) {
+                        me.gameboard.playerTurn = 2;
+                    }
+                    else {
+                        me.gameboard.playerTurn = 1;
+                    }
+                }
+            };
         }]);
 })();

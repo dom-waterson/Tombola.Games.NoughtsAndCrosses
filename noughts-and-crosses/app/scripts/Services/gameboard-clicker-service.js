@@ -15,16 +15,6 @@
                     else if(response.outcome === 'Draw'){
                         $timeout(changeToEndState, 2000, true, 'draw');
                     }
-                },
-                changePlayer = function(){
-                    if(gameboardService.gameboard.player1 === 'human' && gameboardService.gameboard.player2 === 'human') {
-                        if (gameboardService.gameboard.playerTurn === 1) {
-                            gameboardService.gameboard.playerTurn = 2;
-                        }
-                        else {
-                            gameboardService.gameboard.playerTurn = 1;
-                        }
-                    }
                 };
 
             me.gameboardClicked = function(squareNumberClicked){
@@ -35,7 +25,7 @@
                     .then(function(response){
                         gameboardService.gameboard.board = response.gameboard;
                         gameboardService.currentGameState = response.outcome;
-                        changePlayer();
+                        gameboardService.changePlayer();
                         checkOutcome(response);
                     })
                     .catch(function(response){
