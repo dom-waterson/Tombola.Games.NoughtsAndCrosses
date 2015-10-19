@@ -4,9 +4,9 @@
         var themeChangerService;
         beforeEach(function(){
             module('Tombola.NoughtsAndCrosses');
-            inject(function(_ThemeChangerService_){
-                themeChangerService = _ThemeChangerService_;
-            });
+            inject(['ThemeChangerService', function(_themeChangerService_){
+                themeChangerService = _themeChangerService_;
+            }]);
         });
 
         it('should have the theme set to default by default', function(){

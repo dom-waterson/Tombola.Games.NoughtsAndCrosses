@@ -12,7 +12,8 @@
                     'noughts-and-crosses/app/scripts/*.js',
                     'noughts-and-crosses/app/scripts/Controllers/*.js',
                     'noughts-and-crosses/app/scripts/Directives/*.js',
-                    'noughts-and-crosses/app/scripts/Services/*.js'
+                    'noughts-and-crosses/app/scripts/Services/*.js',
+                    'noughts-and-crosses/mocks/*.js'
                 ]
             }
         }

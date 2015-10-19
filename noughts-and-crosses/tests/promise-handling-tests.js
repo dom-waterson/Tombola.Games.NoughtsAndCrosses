@@ -7,10 +7,10 @@
         beforeEach(function(){
             module('Tombola.NoughtsAndCrosses');
 
-            inject(function($httpBackend, _PromiseHandler_){
+            inject(['$httpBackend', 'PromiseHandler', function($httpBackend, _promiseHandler_){
                 httpBackend = $httpBackend;
-                promiseHandler = _PromiseHandler_;
-            });
+                promiseHandler = _promiseHandler_;
+            }]);
         });
 
         it('should send and receive a valid new game response', function(){
