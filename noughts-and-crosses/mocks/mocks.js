@@ -42,5 +42,9 @@ var mocks = {
     themeChangerService:{
         theme: 'default',
         switchTheme: function(){}
+    },
+
+    winCheckerService:{
+        checkWin: function(){}
     }
 };
