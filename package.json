@@ -41,7 +41,8 @@
     "express": "~4.13.3",
     "grunt-express-server": "~0.5.1",
     "morgan": "~1.6.1",
-    "karma-nyan-reporter": "~0.2.2"
+    "karma-nyan-reporter": "~0.2.2",
+    "karma-ng-html2js-preprocessor": "~0.2.0"
   },
   "dependencies": {
     "grunt": "~0.4.5",
