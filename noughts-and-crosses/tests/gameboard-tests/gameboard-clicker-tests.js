@@ -58,15 +58,29 @@
         });
 
         it('should update the appropriate square with player 1 on player 1s turn', function(){
-            var expectedGameboard = '100000000';
-            mocks.gameboardService.gameboard.board = mocks.promiseHandler.makeMove(1,0).gameboard;
-            mocks.gameboardService.gameboard.board.should.equal(expectedGameboard);
+            var deferred = q.defer();
+            sinon.sandbox.stub(mocks.promiseHandler, 'makeMove', function(){
+                return deferred.promise;
+            });
+            mocks.gameboardService.gameboard.board = '000000000';
+            mocks.gameboardService.currentGameState = '';
+            GameboardClickerService.gameboardClicked(0);
+            deferred.resolve({gameboard: '100000000'});
+            rootScope.$apply();
+            mocks.gameboardService.gameboard.board.should.equal('100000000');
         });
 
         it('should update the appropriate square with player 2 on player 2s turn', function(){
-            var expectedGameboard = '200000000';
-            mocks.gameboardService.gameboard.board = mocks.promiseHandler.makeMove(2, 0).gameboard;
-            mocks.gameboardService.gameboard.board.should.equal(expectedGameboard);
+            var deferred = q.defer();
+            sinon.sandbox.stub(mocks.promiseHandler, 'makeMove', function(){
+                return deferred.promise;
+            });
+            mocks.gameboardService.currentGameState = '';
+            mocks.gameboardService.gameboard.board = '000000000';
+            GameboardClickerService.gameboardClicked(0);
+            deferred.resolve({gameboard: '200000000'});
+            rootScope.$apply();
+            mocks.gameboardService.gameboard.board.should.equal('200000000');
         });
 
         it('should not change the gameboard if the square clicked is already occupied', function(){

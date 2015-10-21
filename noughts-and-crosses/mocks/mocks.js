@@ -23,14 +23,7 @@ var mocks = {
     },
 
     promiseHandler: {
-        makeMove: function(currentPlayer, chosenSquare){
-            if(currentPlayer === 1){
-                return {gameboard: '100000000'};
-            }
-            else{
-                return {gameboard: '200000000'};
-            }
-        },
+        makeMove: function(currentPlayer, chosenSquare){},
         prepareGame: function(){}
     },
 
