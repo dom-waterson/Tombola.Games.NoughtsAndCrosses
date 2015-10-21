@@ -5,8 +5,7 @@
             state,
             timeout,
             q,
-            //gameboardMock,
-            //promiseHandlerMock,
+            rootScope,
             sandbox;
 
         beforeEach(function(){
@@ -16,14 +15,13 @@
                 $provide.value('WinCheckerService', mocks.winCheckerService);
             });
             sandbox = sinon.sandbox.create();
-            inject(['$state', '$timeout', '$q', 'GameboardClickerService', function($state, $timeout, $q, _gameboardClickerService_){
+            inject(['$rootScope', '$state', '$timeout', '$q', 'GameboardClickerService', function($rootScope, $state, $timeout, $q, _gameboardClickerService_){
+                rootScope = $rootScope;
                 state = $state;
                 timeout = $timeout;
                 q = $q;
                 GameboardClickerService = _gameboardClickerService_;
             }]);
-            //gameboardMock = sinon.sandbox.mock(mocks.gameboardService);
-            //promiseHandlerMock = sinon.sandbox.mock(mocks.promiseHandler);
         });
 
         it('should change the state to win if the outcome given is a win', function() {
@@ -77,15 +75,20 @@
             mocks.gameboardService.gameboard.board.should.equal('100000000');
         });
 
-        it.skip('should appropriately set the winning player', function(){
-            //TODO
+        it('should appropriately set the winning player', function(){
+            var deferred = q.defer();
+            sinon.sandbox.stub(mocks.promiseHandler, 'makeMove', function(){
+                return deferred.promise;
+            });
+            mocks.gameboardService.currentGameState = '';
+            mocks.gameboardService.gameboard.board = '000000000';
             GameboardClickerService.gameboardClicked(0);
+            deferred.resolve({outcome:'Win', winner:2});
+            rootScope.$apply();
             mocks.gameboardService.playerWinner.should.equal('Player 2');
         });
 
         afterEach(function(){
-            //gameboardMock.verify();
-            //promiseHandlerMock.verify();
             sandbox.restore();
         });
     });
