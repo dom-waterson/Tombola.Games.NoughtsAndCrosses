@@ -28,7 +28,6 @@ var mocks = {
     },
 
     gameboardClickerService:{
-        changePlayer: function(){},
         gameboardClicked: function(squareNumberClicked){}
     },
 
