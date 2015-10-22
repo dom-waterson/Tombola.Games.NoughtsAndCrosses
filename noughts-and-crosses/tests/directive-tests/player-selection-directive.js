@@ -43,21 +43,28 @@
             directiveElement[0].toString().should.equal('[object HTMLElement]');
         });
 
-        it.skip('should set the theme based on the theme changer service', function(){
+        it('should set the theme based on the theme changer service', function(){
             rootScope.themeChangerModel = mocks.themeChangerService;
             mocks.themeChangerService.theme = 'silly';
             rootScope.$digest();
-            var element = directiveElement.find('div');
-            element.attr('ng-class').should.equal('silly');
+            var element = directiveElement[0].children[0];
+            element.className.should.equal('playerselection silly');
         });
 
-        it('should bind player the players correctly based on the player type selected', function(){
+        it('should bind player 1s selected type correctly', function(){
             rootScope.model = mocks.playerSelectionService;
-            var element = directiveElement.find('h2');
+            var element = directiveElement[0].children[0].children[0].children[0];
             mocks.playerSelectionService.players[0] = 'human';
+            rootScope.$digest();
+            element.childNodes[0].data.should.equal('Player 1 = human');
+        });
+
+        it('should bind player 2s selected type correctly', function(){
+            rootScope.model = mocks.playerSelectionService;
+            var element = directiveElement[0].children[0].children[1].children[0];
             mocks.playerSelectionService.players[1] = 'random';
             rootScope.$digest();
-            element.text().should.equal('Player 1 = humanPlayer 2 = random');
+            element.childNodes[0].data.should.equal('Player 2 = random');
         });
 
         it('should call to change the player type picture on image click', function(){

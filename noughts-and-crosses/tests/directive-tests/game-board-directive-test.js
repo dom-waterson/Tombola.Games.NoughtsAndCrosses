@@ -41,38 +41,48 @@
             directiveElement[0].toString().should.equal('[object HTMLElement]');
         });
 
-        it.skip('should set the theme based on the theme changer service', function(){
+        it('should set the theme based on the theme changer service', function(){
             rootScope.themeChangerModel = mocks.themeChangerService;
             mocks.themeChangerService.theme = 'silly';
             rootScope.$digest();
-            var element = directiveElement.find('div');
-            element.attr('ng-class').should.equal('silly');
+            var element = directiveElement[0].children[0];
+            element.className.should.equal('silly');
         });
 
         it('should have the appropriate class applied to the gameboard div', function(){
-            var element = directiveElement.find('div .gameboard');
-            element.attr('class').should.equal('gameboard');
+            var element = directiveElement[0].children[0].children[0];
+            element.className.should.equal('gameboard');
         });
 
-        it.skip('should set the gameboard row class to the appropriate divs', function(){
-            var element = directiveElement.find('div');
-            element.attr('class').should.equal('gameboardRow');
+        it('should set the gameboard row class to the appropriate divs', function(){
+            var element = directiveElement[0].children[0].children[0], i;
+            for(i=0; i<element.children.length; i++){
+                element.children[i].className.should.equal('gameboardRow');
+            }
         });
 
-        it.skip('should set the 9 gameboard squares with the appropriate classes', function(){
+        it('should set the 9 gameboard squares with the appropriate classes', function(){
             rootScope.gameboardModel = mocks.gameboardService;
-            var element = directiveElement.find('div');
+            var element = directiveElement[0].children[0].children[0], i, j, count=0;
+            mocks.gameboardService.gameboard.board = '010200102';
+            rootScope.$digest();
+            for(i=0;i<element.children.length;i++){
+                for(j=0;j<element.children[i].children.length; j++){
+                    element.children[i].children[j].className.should.equal('gameboardSquare player'+mocks.gameboardService.gameboard.board[count]);
+                    count++;
+                }
+            }
+        });
+
+        it('should change the divs class binding when the gameboard is changed', function(){
+            rootScope.gameboardModel = mocks.gameboardService;
+            var element = directiveElement[0].children[0].children[0].children[0].children[0];
             mocks.gameboardService.gameboard.board = '000000000';
             rootScope.$digest();
-            element.attr('class').should.equal('gameboardSquare player0');
-        });
-
-        it.skip('should change the divs class binding when the gameboard is changed', function(){
-            rootScope.gameboardModel = mocks.gameboardService;
+            element.className.should.equal('gameboardSquare player0');
             mocks.gameboardService.gameboard.board = '100000000';
-            var element = directiveElement.find('div.gameboardSquare');
             rootScope.$digest();
-            element.attr('class').should.equal('gameboardSquare player1');
+            element.className.should.equal('gameboardSquare player1');
         });
 
         it('should call the gameboardClicked method when clicking a square', function(){
