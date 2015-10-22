@@ -40,6 +40,6 @@
             server.listen(port);
             grunt.log.writeln('Listening on port ' + port);
         });
-        grunt.registerTask('default', ['copy:mainappbower', 'JSFiles', 'lessFiles', 'htmlFiles', 'soundFiles', 'imageFiles', 'server', 'watch']);
+        grunt.registerTask('default', ['copy:mainappbower', 'JSFiles', 'lessFiles', 'htmlFiles', 'soundFiles', 'imageFiles', 'server', 'tests', 'watch']);
     }
 })();

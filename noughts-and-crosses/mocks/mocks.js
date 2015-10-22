@@ -11,7 +11,8 @@ var mocks = {
             playerTurn: 1
         },
         playing: false,
-        resetGame: function(){}
+        resetGame: function(){},
+        changePlayer: function(){}
     },
 
     playerSelectionService: {
@@ -22,25 +23,20 @@ var mocks = {
     },
 
     promiseHandler: {
-        makeMove: function(currentPlayer, chosenSquare){
-            if(currentPlayer === 1){
-                return {gameboard: '100000000'};
-            }
-            else{
-                return {gameboard: '200000000'};
-            }
-        },
+        makeMove: function(currentPlayer, chosenSquare){},
         prepareGame: function(){}
     },
 
     gameboardClickerService:{
-        checkOutcome: function(response){},
-        changePlayer: function(){},
         gameboardClicked: function(squareNumberClicked){}
     },
 
     themeChangerService:{
         theme: 'default',
         switchTheme: function(){}
+    },
+
+    winCheckerService:{
+        checkWin: function(){}
     }
 };
