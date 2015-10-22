@@ -49,6 +49,32 @@
             element.attr('ng-class').should.equal('silly');
         });
 
+        it('should bind player the players correctly based on the player type selected', function(){
+            rootScope.model = mocks.playerSelectionService;
+            var element = directiveElement.find('h2');
+            mocks.playerSelectionService.players[0] = 'human';
+            mocks.playerSelectionService.players[1] = 'random';
+            rootScope.$digest();
+            element.text().should.equal('Player 1 = humanPlayer 2 = random');
+        });
+
+        it('should call to change the player type picture on image click', function(){
+            rootScope.model = mocks.playerSelectionService;
+            var element = directiveElement.find('img');
+            rootScope.$digest();
+            element.triggerHandler('click');
+            togglePlayer1Spy.should.have.been.calledOnce; /*jshint ignore:line */
+            togglePlayer2Spy.should.have.been.calledOnce; /*jshint ignore:line */
+        });
+
+        it('should call the create gameboard method once on appropriate button click', function(){
+            rootScope.gameboardModel = mocks.gameboardService;
+            var element = directiveElement.find('button');
+            rootScope.$digest();
+            element.triggerHandler('click');
+            createGameboardSpy.should.have.been.calledOnce; /*jshint ignore:line */
+        });
+
         afterEach(function(){
             sandbox.restore();
         });
