@@ -49,8 +49,8 @@
             element.attr('ng-class').should.equal('silly');
         });
 
-        it.skip('should have the appropriate class applied to the gameboard div', function(){
-            var element = directiveElement.find('div');
+        it('should have the appropriate class applied to the gameboard div', function(){
+            var element = directiveElement.find('div .gameboard');
             element.attr('class').should.equal('gameboard');
         });
 
